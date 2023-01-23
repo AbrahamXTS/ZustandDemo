@@ -1,14 +1,29 @@
-import { Carrito, Productos } from "./components";
+import { useEffect } from "react";
+
+import { useUserStore } from "./store";
+import { Carrito, Botones, Usuarios } from "./components";
 
 function App() {
+	
+	const fetchUsers = useUserStore((state) => state.loadUsers);
+
+	useEffect(() => {
+		fetchUsers();
+	}, []);
 
 	return (
 		<>
+			<h2 className="text-center">Síncrono</h2>
+
 			<Carrito />
 
-			<Productos />
+			<Botones />
 
 			<hr />
+
+			<h2 className="text-center">Asíncrono</h2>
+
+			<Usuarios />
 		</>
 	)
 }

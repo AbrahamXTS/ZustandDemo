@@ -7,7 +7,7 @@ export const Carrito = () => {
 	return (
 		<>
 			{cart.map(({ id, name, price }) => (
-				<div key={id}>
+				<div key={id} className="text-center">
 					<p>{name} - ${price}</p>
 				</div>
 			))}

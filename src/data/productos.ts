@@ -23,12 +23,12 @@ export const productos: Producto[] = [
 	},
 	{
 		id: 5,
-		name: "Peluche Flutter",
+		name: "Termo",
 		price: 200
 	},
 	{
 		id: 6,
-		name: "Peluche Golang",
-		price: 300
+		name: "Impresora",
+		price: 1000
 	}
 ];
