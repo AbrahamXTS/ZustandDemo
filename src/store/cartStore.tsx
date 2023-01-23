@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
 import { Producto } from "../interfaces";
 
 interface CartState {
@@ -6,7 +8,9 @@ interface CartState {
 	addToCart: (product: Producto) => void;
 }
 
-export const useCartStore = create<CartState>((set) => ({
+export const useCartStore = create(persist<CartState>((set) => ({ 
 	cart: [],
-	addToCart: (product) => set((state) => ({ cart: [...state.cart, product] }))
+	addToCart: (product) => set((state) => ({ cart: [...state.cart, product] })),
+}), {
+	name: "cart",
 }));
